@@ -1,0 +1,144 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+    animation: fadeIn 2s ease-out, slideInFromLeft 2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translate(-50%, -50%) translateX(-100%);
+    }
+    to {
+        transform: translate(-50%, -50%) translateX(0);
+    }
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    margin: 0;
+    opacity: 0;
+    animation: slideInFromCenter 1.5s ease-out forwards;
+}
+
+@keyframes slideInFromCenter {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+.hero-content p {
+    font-size: 1.5em;
+    animation: fadeIn 4s ease-out, slideInFromBottom 4s ease-out;
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translate(-50%, -50%) translateY(100%);
+    }
+    to {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+}
+
+.hero-content a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    animation: fadeIn 5s ease-out, scaleUp 5s ease-out;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero video {
+        display: none;
+    }
+}
+
+p {
+    font-family: 'Merriweather', serif; 
+}
+
+/* style.css */
+
+.navbar {
+    background-color: #ffffff; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    border: 1px solid #dddddd; 
+    border-radius: 0; 
+}
+
+.navbar-brand {
+    font-size: 1.5rem; 
+    font-weight: bold;
+    color: #333333; 
+}
+
+.navbar-nav {
+    margin-left: auto; 
+}
+.nav-link {
+    color: #555555; 
+    font-weight: bold; 
+    margin-left: 1rem; 
+}
+
+.nav-link:hover {
+    color: #007bff; 
+}
