@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
     <div class="container">
@@ -57,5 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a href="register.php" class="btn btn-secondary">¿No tienes una cuenta? Regístrate</a>
         </div>
     </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Sistema de Gestión Hotelera</p>
+    </footer>
 </body>
 </html>

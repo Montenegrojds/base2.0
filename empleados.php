@@ -15,6 +15,8 @@ $empleados = $stmt->get_result();
     <meta charset="UTF-8">
     <title>Lista de Empleados</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
+    
 </head>
 <body>
     <div class="container">
@@ -45,5 +47,9 @@ $empleados = $stmt->get_result();
             <a href="dashboard.php" class="btn btn-secondary">Volver al Dashboard</a>
         </div>
     </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Sistema de Gestión Hotelera</p>
+    </footer>
 </body>
 </html>

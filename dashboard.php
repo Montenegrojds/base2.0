@@ -9,7 +9,7 @@ check_login();
     <meta charset="UTF-8">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
     <header>
@@ -33,7 +33,7 @@ check_login();
         </div>
     </div>
     <footer class="footer">
-        <p>&copy; 2023 Sistema de Gestión Hotelera</p>
+        <p>&copy; 2024 Sistema de Gestión Hotelera</p>
     </footer>
 </body>
 </html>

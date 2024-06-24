@@ -54,5 +54,9 @@ $result_habitaciones = $stmt_habitaciones->get_result();
             <button type="submit" class="btn btn-primary">Añadir Solicitud de Mantenimiento</button>
         </form>
     </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Sistema de Gestión Hotelera</p>
+    </footer>
 </body>
 </html>

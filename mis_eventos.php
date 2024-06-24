@@ -18,6 +18,7 @@ $eventos = $stmt->get_result();
     <meta charset="UTF-8">
     <title>Mis Eventos</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
     <div class="container">
@@ -53,5 +54,9 @@ $eventos = $stmt->get_result();
             <a href="dashboard.php" class="btn btn-secondary">Volver al Dashboard</a>
         </div>
     </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Sistema de Gestión Hotelera</p>
+    </footer>
 </body>
 </html>
