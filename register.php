@@ -5,33 +5,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $fecha_nacimiento = $_POST['fecha_nacimiento'];
     $telefono = $_POST['telefono'];
     $direccion = $_POST['direccion'];
+    $fecha_nacimiento = $_POST['fecha_nacimiento'];
+    $contrasena = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
 
-    // Validar que se ha ingresado una fecha de nacimiento válida
-    if (!empty($fecha_nacimiento) && $fecha_nacimiento !== '0000-00-00') {
-        // Calcular la edad del usuario
-        $fecha_actual = new DateTime();
-        $fecha_nac = new DateTime($fecha_nacimiento);
-        $edad = $fecha_actual->diff($fecha_nac)->y;
+    $stmt = $conn->prepare("INSERT INTO cliente (nombre, apellido, email, telefono, direccion, fecha_nacimiento, contrasena) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssss", $nombre, $apellido, $email, $telefono, $direccion, $fecha_nacimiento, $contrasena);
 
-        if ($edad >= 18) {
-            $stmt = $conn->prepare("INSERT INTO cliente (nombre, apellido, email, contrasena, fecha_nacimiento, telefono, direccion) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssss", $nombre, $apellido, $email, $password, $fecha_nacimiento, $telefono, $direccion);
-
-            if ($stmt->execute()) {
-                header("Location: login.php");
-                exit();
-            } else {
-                $error = "Error al registrar el usuario";
-            }
-        } else {
-            $error = "Debes ser mayor de edad para registrarte.";
-        }
+    if ($stmt->execute()) {
+        header("Location: login.php");
+        exit();
     } else {
-        $error = "Por favor, ingrese una fecha de nacimiento válida.";
+        $error = "Error al registrar el usuario.";
     }
 }
 ?>
@@ -40,13 +26,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Registrarse</title>
+    <title>Registro</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header>
+        <h1>Registro de Usuario</h1>
+    </header>
     <div class="container">
-        <h1 class="my-5">Registrarse</h1>
         <?php if (isset($error)): ?>
             <div class="alert alert-danger"><?php echo $error; ?></div>
         <?php endif; ?>
@@ -64,10 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="email" class="form-control" name="email" required>
             </div>
             <div class="form-group">
-                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-                <input type="date" class="form-control" name="fecha_nacimiento" required>
-            </div>
-            <div class="form-group">
                 <label for="telefono">Teléfono:</label>
                 <input type="text" class="form-control" name="telefono" required>
             </div>
@@ -76,14 +60,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="text" class="form-control" name="direccion" required>
             </div>
             <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <input type="password" class="form-control" name="password" required>
+                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                <input type="date" class="form-control" name="fecha_nacimiento" required>
             </div>
-            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <div class="form-group">
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" class="form-control" name="contrasena" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
         </form>
-        <div class="mt-4">
-            <a href="login.php" class="btn btn-secondary">¿Ya tienes una cuenta? Inicia sesión</a>
+        <div class="mt-4 text-center">
+            <a href="login.php" class="btn btn-secondary">¿Ya tienes una cuenta? Inicia Sesión</a>
         </div>
     </div>
+    <footer class="footer">
+        <p>&copy; 2023 Sistema de Gestión Hotelera</p>
+    </footer>
 </body>
 </html>

@@ -22,9 +22,9 @@ $reservas = $stmt->get_result();
 </head>
 <body>
     <div class="container">
-        <h1 class="my-5">Mis Reservas</h1>
-        <table class="table table-bordered">
-            <thead>
+        <h1 class="my-5 text-center">Mis Reservas</h1>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
                 <tr>
                     <th>ID de Reserva</th>
                     <th>Fecha de Entrada</th>
@@ -32,7 +32,6 @@ $reservas = $stmt->get_result();
                     <th>Monto Total</th>
                     <th>Estado de Pago</th>
                     <th>Método de Pago</th>
-                    <th>Fecha de Pago</th>
                     <th>Acción</th>
                 </tr>
             </thead>
@@ -43,31 +42,30 @@ $reservas = $stmt->get_result();
                     <td><?php echo htmlspecialchars($reserva['fecha_entrada']); ?></td>
                     <td><?php echo htmlspecialchars($reserva['fecha_salida']); ?></td>
                     <td><?php echo htmlspecialchars($reserva['monto_total']); ?></td>
-                    <td><?php echo $reserva['pago_id'] ? 'Pagado' : 'Pendiente'; ?></td>
+                    <td><?php echo htmlspecialchars($reserva['pago_id'] ? 'Pagado' : 'Pendiente'); ?></td>
                     <td><?php echo htmlspecialchars($reserva['metodo_pago'] ?? 'N/A'); ?></td>
-                    <td><?php echo htmlspecialchars($reserva['fecha_pago'] ?? 'N/A'); ?></td>
                     <td>
                         <?php if (!$reserva['pago_id']): ?>
-                        <form action="pagar_reserva.php" method="post">
+                        <form action="pagar_reserva.php" method="post" class="d-inline-block">
                             <input type="hidden" name="reserva_id" value="<?php echo htmlspecialchars($reserva['reserva_id']); ?>">
-                            <select name="metodo_pago" class="form-control" required>
-                                <option value="">Seleccionar Método</option>
-                                <option value="Efectivo">Efectivo</option>
-                                <option value="Tarjeta">Tarjeta</option>
-                            </select>
-                            <button type="submit" class="btn btn-primary mt-2">Pagar</button>
+                            <button type="submit" class="btn btn-success btn-sm">Pagar</button>
                         </form>
-                        <?php else: ?>
-                        N/A
                         <?php endif; ?>
+                        <form action="cancelar_reserva.php" method="post" class="d-inline-block">
+                            <input type="hidden" name="reserva_id" value="<?php echo htmlspecialchars($reserva['reserva_id']); ?>">
+                            <button type="submit" class="btn btn-danger btn-sm">Cancelar</button>
+                        </form>
                     </td>
                 </tr>
                 <?php endwhile; ?>
             </tbody>
         </table>
-        <div class="mt-4">
+        <div class="mt-4 text-center">
             <a href="dashboard.php" class="btn btn-secondary">Volver al Dashboard</a>
         </div>
     </div>
+    <footer class="footer">
+        <p>&copy; 2023 Sistema de Gestión Hotelera</p>
+    </footer>
 </body>
 </html>
