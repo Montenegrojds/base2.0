@@ -35,6 +35,7 @@ $stmt->fetch();
     <meta charset="UTF-8">
     <title>Actualizar Perfil</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
     <div class="container">

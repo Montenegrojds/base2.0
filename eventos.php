@@ -42,6 +42,7 @@ $eventos = $stmt->get_result();
     <meta charset="UTF-8">
     <title>Eventos Disponibles</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
     <div class="container">
