@@ -59,5 +59,9 @@ $result_proveedores = $stmt_proveedores->get_result();
             <button type="submit" class="btn btn-primary">Añadir Artículo</button>
         </form>
     </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Sistema de Gestión Hotelera</p>
+    </footer>
 </body>
 </html>

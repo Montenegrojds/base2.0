@@ -32,5 +32,7 @@ if (!is_admin()) {
     <div class="container">
         <h1 class="my-5">Panel de Administración</h1>
     </div>
+
+    
 </body>
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Sistema de Gestión Hotelera</title>
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
 <body>
     <div class="container">
@@ -13,5 +14,9 @@
             <a href="register.php" class="list-group-item list-group-item-action">Registrarse</a>
         </div>
     </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Sistema de Gestión Hotelera</p>
+    </footer>
 </body>
 </html>

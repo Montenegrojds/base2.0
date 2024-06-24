@@ -33,7 +33,7 @@ check_login();
         </div>
     </div>
     <footer class="footer">
-        <p>&copy; 2023 Sistema de Gestión Hotelera</p>
+        <p>&copy; 2024 Sistema de Gestión Hotelera</p>
     </footer>
 </body>
 </html>

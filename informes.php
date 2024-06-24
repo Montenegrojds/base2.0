@@ -39,5 +39,9 @@ $total_servicios = $result_servicios->fetch_assoc()['total_servicios'];
         <h2>Servicios Utilizados</h2>
         <p>Total de servicios utilizados: <?php echo $total_servicios; ?></p>
     </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Sistema de Gestión Hotelera</p>
+    </footer>
 </body>
 </html>
