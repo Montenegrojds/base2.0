@@ -8,19 +8,10 @@ function check_login() {
     }
 }
 
-function is_admin() {
-    return isset($_SESSION['role']) && $_SESSION['role'] === 'Administrador';
-}
-
-function is_gerente() {
-    return isset($_SESSION['role']) && $_SESSION['role'] === 'Gerente';
-}
-
-function is_recepcionista() {
-    return isset($_SESSION['role']) && $_SESSION['role'] === 'Recepcionista';
-}
-
-function is_cliente() {
-    return isset($_SESSION['role']) && $_SESSION['role'] === 'Cliente';
+function check_admin() {
+    if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] != 'Administrador') {
+        header("Location: login.php");
+        exit();
+    }
 }
 ?>
