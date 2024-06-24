@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
     <div class="container">
